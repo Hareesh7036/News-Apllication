@@ -1,0 +1,18 @@
+.main-container{
+    margin-top: 70px;
+}
+.headlines h3{
+    text-align: center;
+    background-color: rgb(219, 219, 223);
+}
+.content-list li{
+    overflow: hidden;
+    margin: 10px;
+    background-color: rgb(221, 249, 249);
+    padding:10px ;
+    border-radius: 5px;
+    box-shadow: 2px 2px  5px grey;
+}
+.content-list li div{
+    margin-bottom: 5px;
+}
