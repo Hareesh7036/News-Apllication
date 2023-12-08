@@ -1,5 +1,18 @@
+html, body{
+    overflow-y: auto;
+    height: 100vh;
+}
+
 .main-container{
     margin-top: 70px;
+}
+.headlines{
+    overflow-y: scroll;
+    height: 100vh;
+}
+.content-container{
+    height: 100vh;
+    overflow-y: scroll;
 }
 .headlines h3{
     text-align: center;
@@ -15,4 +28,13 @@
 }
 .content-list li div{
     margin-bottom: 5px;
+}
+
+.headline-img{
+    width: 100%;
+    height: auto;
+}
+.content-img{
+    width: 60%;
+    height: auto;
 }
