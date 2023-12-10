@@ -29,11 +29,20 @@ const Content = () => {
         setClickedDataId(eve?.target.closest('li').id);
     };
 
+    const [headlines,setHeadlines]=useState(false);
+    const handleClose= ()=>{
+        setHeadlines(true);
+
+    };
+    const handleContentBtn =()=>{
+        setHeadlines(false);
+    };
   return (
     <div className='row main-container'>
         
-        <div className="headlines col-sm-5">
+        <div className="headlines col-sm-5 " style={{zIndex:headlines?"0":"2"}}>
         <h3>Headlines</h3>
+        <button className='headlines-btn ' onClick={handleClose}><span className='bi bi-x-lg'></span></button>
         <p style={{fontSize:"13px"}}>Total results:{newsData?.totalResults}</p>
         <ul className='content-list'>
             {newsData?.articles.map((article,ind)=>{
@@ -49,8 +58,9 @@ const Content = () => {
             })}
         </ul>
         </div>
-        <div className='col-sm-7 content-container'>
+        <div className='col-sm-7 content-container' id='content-cont' >
             <div >
+                <button className='content-btn' onClick={handleContentBtn}>Headlines</button>
                 <p className='title'>{newsData?.articles[clickedDataId].title}</p>
                 <img className='content-img' src={newsData?.articles[clickedDataId].urlToImage}></img>
                 <div>

@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import './globals.css'
 import Content from '../main-page/page'
 import { Header } from '@/Header/page'

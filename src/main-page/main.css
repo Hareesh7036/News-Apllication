@@ -1,28 +1,32 @@
-html, body{
-    overflow-y: auto;
-    height: 100vh;
-}
+
 
 .main-container{
     margin-top: 70px;
+    
 }
 .headlines{
-    overflow-y: scroll;
-    height: 100vh;
+    overflow-y: auto;
+    max-height: 100vh;
+    padding-bottom: 100px;
 }
 .content-container{
-    height: 100vh;
     overflow-y: scroll;
+    max-height: 100vh;
+    padding-bottom: 100px;
+    
+    
 }
 .headlines h3{
     text-align: center;
     background-color: rgb(219, 219, 223);
+    padding: 5px;
     position: sticky;
-    top: 0px;
+    top: 0;
 }
 .content-list li{
     overflow: hidden;
     margin: 10px;
+    margin-right: 2px;
     background-color: rgb(221, 249, 249);
     padding:10px ;
     border-radius: 5px;
@@ -48,11 +52,11 @@ html, body{
     text-decoration: none;
     display: block;
     text-align: center;
-    margin-bottom: 50px;
     color: green;
 }
 .content-container div a :hover{
     color: green;
+    
 }
 .title{
     margin-top: 20px;
@@ -73,4 +77,48 @@ html, body{
 .content{
     text-align:justify;
     text-indent: 70px;
+}
+.content-btn{
+    display: none;
+}
+.headlines-btn{
+    display: none;
+}
+
+@media screen and (max-width:580px){
+    .content-container{
+        background-color: white;
+        z-index: 1;
+    }
+    .headlines{
+        position: absolute;
+        width: 80%;
+        height: 100%;
+        background-color: white;
+    }
+    
+    .content-btn{
+        display: block;
+        position: relative;
+        left: 80%;
+        padding: 5px;
+        margin-top: 5px;
+        border: none;
+        background-color: darkgreen;
+        color: white;
+        border-radius: 5px;
+        margin-bottom: -10px;
+    }
+    .headlines-btn{
+        display: block;
+        position: sticky;
+        left: 100%;
+        top: 0;
+        border: none;
+        width: 38px;
+        height: 38px;
+        background-color: darkgray;
+        
+    }
+    
 }
