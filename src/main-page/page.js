@@ -6,8 +6,12 @@ import Reverse from 'my-sample-react-lib-ntg'
 const Content = () => {
     const[clickedDataId,setClickedDataId]=useState(0);
     const[newsData,setNewsData]=useState();
+    const todayDate= new Date();
+    const date =todayDate.getDate();
+    const month=todayDate.getMonth();
+    const year =todayDate.getFullYear();
     useEffect(()=>{
-        fetch('https://newsapi.org/v2/everything?q=tesla&from=2023-11-08&sortBy=publishedAt&apiKey=4cf547b050224c05aac85694217fe43b')
+        fetch(`https://newsapi.org/v2/everything?q=tesla&from=${year}-${month}-${date}&sortBy=publishedAt&apiKey=4cf547b050224c05aac85694217fe43b`)
     .then((res)=>{
         const x=res.json();
         return x;
@@ -30,7 +34,7 @@ const Content = () => {
         
         <div className="headlines col-sm-5">
         <h3>Headlines</h3>
-        <p>Total results:{newsData?.totalResults}</p>
+        <p style={{fontSize:"13px"}}>Total results:{newsData?.totalResults}</p>
         <ul className='content-list'>
             {newsData?.articles.map((article,ind)=>{
              return(   <li key={`li_${ind}`} onClick={handleContent} id={ind}>
@@ -47,14 +51,14 @@ const Content = () => {
         </div>
         <div className='col-sm-7 content-container'>
             <div >
-                <p>{newsData?.articles[clickedDataId].title}</p>
+                <p className='title'>{newsData?.articles[clickedDataId].title}</p>
                 <img className='content-img' src={newsData?.articles[clickedDataId].urlToImage}></img>
                 <div>
-                    <p>{newsData?.articles[clickedDataId].description}</p>
-                    <p>{newsData?.articles[clickedDataId].content}</p>
+                    <p className='description'>{newsData?.articles[clickedDataId].description}</p>
+                    <p className='content'>{newsData?.articles[clickedDataId].content}</p>
                     </div>
-                <p>- {newsData?.articles[clickedDataId].author}</p>
-                <a href={newsData?.articles[clickedDataId].url}>click for more detailss</a>
+                {<p className='author'>- {newsData?.articles[clickedDataId].author}</p>}
+                {<a href={newsData?.articles[clickedDataId].url}>click for more details...</a>}
             </div>
             
         </div>

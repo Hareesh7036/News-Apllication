@@ -17,6 +17,8 @@ html, body{
 .headlines h3{
     text-align: center;
     background-color: rgb(219, 219, 223);
+    position: sticky;
+    top: 0px;
 }
 .content-list li{
     overflow: hidden;
@@ -37,4 +39,38 @@ html, body{
 .content-img{
     width: 60%;
     height: auto;
+    border-radius: 5px;
+}
+.author{
+    text-align: end;
+}
+.content-container div a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+    color: green;
+}
+.content-container div a :hover{
+    color: green;
+}
+.title{
+    margin-top: 20px;
+    padding: 15px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.description{
+    margin-top: 30px;
+    text-indent: 70px;
+    font-size: 10px;
+    line-height: 20px;
+    background-color: beige;
+    padding: 10px;
+    border-radius: 10px;
+}
+.content{
+    text-align:justify;
+    text-indent: 70px;
 }
