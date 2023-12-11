@@ -11,7 +11,7 @@ const Content = () => {
     const month=todayDate.getMonth();
     const year =todayDate.getFullYear();
     useEffect(()=>{
-        fetch(`https://newsapi.org/v2/everything?q=tesla&from=${year}-${month}-${date}&sortBy=publishedAt&apiKey=4cf547b050224c05aac85694217fe43b`)
+        fetch(`https://newsapi.org/v2/everything?q=tesla&from=${year}-${month}-${date}&language=en&sortBy=publishedAt&apiKey=4cf547b050224c05aac85694217fe43b`)
     .then((res)=>{
         const x=res.json();
         return x;
