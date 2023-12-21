@@ -61,7 +61,6 @@
     
 }
 .title{
-    margin-top: 20px;
     padding: 15px;
     background-color: lightgray;
     border-radius: 5px;
@@ -81,11 +80,39 @@
     text-align:justify;
     text-indent: 70px;
 }
-.content-btn{
-    display: none;
+
+
+.content-btn-container{
+        width: 100%;
+        position: relative;
+        padding: 10px 0px 10px;
+        padding-right: -10px;
+        margin: auto;
+        text-align: right;
+}
+.content-btn-container .news{
+    display: inline-block;
+    margin-left: 5px;
+        padding: 8px;
+        border: none;
+        background-color: darkgreen;
+        color: white;
+        border-radius: 5px;
 }
 .headlines-btn{
     display: none;
+}
+.content-btn{
+    display: none;
+}
+
+.loader{
+    opacity: 0.5;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
 }
 
 @media screen and (max-width:580px){
@@ -102,16 +129,14 @@
     }
     
     .content-btn{
-        display: block;
-        position: relative;
-        left: 80%;
-        padding: 5px;
-        margin-top: 5px;
+        display: inline-block;
+        padding: 8px;
+        margin-left: 5px;
         border: none;
         background-color: darkgreen;
         color: white;
         border-radius: 5px;
-        margin-bottom: -10px;
+        
     }
     .headlines-btn{
         display: block;
