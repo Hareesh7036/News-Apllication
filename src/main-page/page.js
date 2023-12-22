@@ -70,7 +70,7 @@ const Content = () => {
                     <div>
                         <img src={article.urlToImage} className='headline-img'></img>
                     </div>
-                    <div>Content:{article.title}</div>
+                    <div >Content:{article.title}</div>
                     
                     {/* <div>Description:{article.description}</div> */}
                     <div>Published At:{article.publishedAt}</div>
@@ -82,7 +82,7 @@ const Content = () => {
             <div >
 
                 <div className='content-btn-container'>
-                    <button className='news' onClick={handleApple}>Apple</button>
+                    <button className='news' onClick={handleApple}><span className='bi bi-apple'></span>Apple</button>
                     <button className='news' onClick={handleTesla}>Tesla</button>
                 <button className='content-btn' onClick={handleContentBtn}>Headlines</button>
                 </div>
