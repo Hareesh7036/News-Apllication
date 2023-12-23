@@ -119,6 +119,9 @@
     top: 50%;
 }
 
+.placeholder{
+    background-color: rgb(2, 34, 2);
+}
 
 
 @media screen and (max-width:580px){

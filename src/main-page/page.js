@@ -10,6 +10,7 @@ const Loader=()=>{
     };
 
 const Content = () => {
+    const placeholderSample=[1,2,3,4,5,6,7,8,9,10,11];
     const [showLoader,setShowLoader]=useState(false);
     const [category,setCategory]=useState('apple');
     const[clickedDataId,setClickedDataId]=useState(0);
@@ -65,7 +66,9 @@ const Content = () => {
         <button className='headlines-btn ' onClick={handleClose}><span className='bi bi-x-lg'></span></button>
         <p style={{fontSize:"13px"}} data-testid="results">Total results:{newsData?.totalResults}, From {category}</p>
         <ul className='content-list'>
-            {newsData?.articles.map((article,ind)=>{
+            {newsData?(
+            
+            newsData?.articles.map((article,ind)=>{
              return(   <li key={`li_${ind}`} onClick={handleContent} id={ind}>
                     <div>
                         <img src={article.urlToImage} className='headline-img'></img>
@@ -75,7 +78,20 @@ const Content = () => {
                     {/* <div>Description:{article.description}</div> */}
                     <div>Published At:{article.publishedAt}</div>
                 </li>)
-            })}
+            })
+        ):(
+            placeholderSample.map((val,ind)=>{
+                return <li key={`li_${ind}`} className='placeholder-glow '>
+                <div>
+                    <img className='headline-img placeholder col-12' width={100} height={70}></img>
+                </div>
+                <div className='placeholder col-6'></div>
+                
+                {/* <div>Description:{article.description}</div> */}
+                <div className='placeholder col-10'></div>
+            </li>
+            })
+        )}
         </ul>
         </div>
         <div className='col-sm-7 content-container' id='content-cont' >
@@ -86,7 +102,10 @@ const Content = () => {
                     <button className='news' onClick={handleTesla}>Tesla</button>
                 <button className='content-btn' onClick={handleContentBtn}>Headlines</button>
                 </div>
-                <p className='title'>{newsData?.articles[clickedDataId].title}</p>
+                {
+                    newsData?(
+                        <>
+                        <p className='title'>{newsData?.articles[clickedDataId].title}</p>
                 <img className='content-img' src={newsData?.articles[clickedDataId].urlToImage}></img>
                 <div>
                     <p className='description'>{newsData?.articles[clickedDataId].description}</p>
@@ -94,6 +113,20 @@ const Content = () => {
                     </div>
                 {<p className='author'>- {newsData?.articles[clickedDataId].author}</p>}
                 {<a href={newsData?.articles[clickedDataId].url}>click for more details...</a>}
+                        </>
+                    ):(
+                        <div className='placeholder-wave'>
+                        <p className='title placeholder col-12'></p>
+                <img className='content-img placeholder col-6' width={100} height={100}></img>
+                <div>
+                    <p className='description placeholder col-10'></p>
+                    <p className='content placeholder col-12'></p>
+                    </div>
+                {<p className='author placeholder col-4'></p>}
+                {<a href={"#"} className='placeholder col-6'></a>}
+                        </div>
+                    )
+                }
             </div>
             
         </div>
