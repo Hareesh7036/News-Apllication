@@ -21,7 +21,7 @@ const Content = () => {
     const year =todayDate.getFullYear();
     useEffect(()=>{
         setShowLoader(true);
-        fetch(`https://newsapi.org/v2/everything?q=${category}&from=${year}-${month}-${date}&language=en&sortBy=publishedAt&apiKey=4cf547b050224c05aac85694217fe43b`)
+        fetch(`https://newsapi.org/v2/everything?q=${category}&from=${year}-${month}-${date}&language=en&sortBy=publishedAt&apiKey=18012def7431424baaeda5b2456ef4fc`)
     .then((res)=>{
         const x=res.json();
         return x;
