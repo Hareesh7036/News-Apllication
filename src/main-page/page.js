@@ -1,13 +1,8 @@
 'use client';
 import React,{useEffect,useState} from 'react'
 import './main.css'
-
-const Loader=()=>{
-    return(<>
-    
-    <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading...." className="loader" />
-    </>);
-    };
+import Loader from '@/OtherComponents/Loader';
+import { Tesla, Apple } from './Response';
 
 const Content = () => {
     const placeholderSample=[1,2,3,4,5,6,7,8,9,10,11];
@@ -15,25 +10,40 @@ const Content = () => {
     const [category,setCategory]=useState('apple');
     const[clickedDataId,setClickedDataId]=useState(0);
     const[newsData,setNewsData]=useState();
+    useEffect(()=>{
+        setShowLoader(true);
+        setTimeout(()=>{
+            if(category =='apple'){
+                setNewsData(Apple);
+                setShowLoader(false)
+            }
+            if(category =='tesla'){
+                setNewsData(Tesla);
+                setShowLoader(false)
+            }
+        },1500)
+    },[category])
+    
     const todayDate= new Date();
     const date =todayDate.getDate();
     const month=todayDate.getMonth();
     const year =todayDate.getFullYear();
-    useEffect(()=>{
-        setShowLoader(true);
-        fetch(`https://newsapi.org/v2/everything?q=${category}&from=${year}-${month}-${date}&language=en&sortBy=publishedAt&apiKey=18012def7431424baaeda5b2456ef4fc`)
-    .then((res)=>{
-        const x=res.json();
-        return x;
-    })
-    .then((res)=>{
-        setNewsData(res);
-        setShowLoader(false);
-    })
-    .catch((res)=>{
-        console.log(res);
-    })
-    },[category]);
+    // useEffect(()=>{
+    //     setShowLoader(true);
+    //     fetch(`https://newsapi.org/v2/everything?q=${category}&from=${year}-${month}-${date}&language=en&sortBy=publishedAt&apiKey=18012def7431424baaeda5b2456ef4fc`)
+    // .then((res)=>{
+    //     const x=res.json();
+    //     return x;
+    // })
+    // .then((res)=>{
+    //     setNewsData(res);
+    //     console.log(res);
+    //     setShowLoader(false);
+    // })
+    // .catch((res)=>{
+    //     console.log(res);
+    // })
+    // },[category]);
 
     const handleContent= (eve)=>{
         setClickedDataId(eve?.target.closest('li').id);

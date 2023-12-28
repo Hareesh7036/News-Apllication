@@ -129,6 +129,7 @@
         background-color: white;
         z-index: 1;
         padding-left: 30px;
+        padding-right: 30px;
     }
     .headlines{
         position: absolute;
